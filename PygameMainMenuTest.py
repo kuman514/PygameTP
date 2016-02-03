@@ -1,5 +1,6 @@
 import pygame, sys
 from pygame.locals import *
+import PygameCharSelect
 
 width = 1280
 height = 960
@@ -15,7 +16,7 @@ TestTitle = pygame.image.load('TestTitle.png')
 pygame.display.set_caption('Pygame Main Menu Test')
 
 while True:
-	for Event in  pygame.event.get():
+	for Event in pygame.event.get():
 		if Event.type == QUIT:
 			pygame.quit()
 			sys.exit()
@@ -30,7 +31,11 @@ while True:
 		menuinput = menuinput % 3
 	elif Key[pygame.constants.K_RETURN]:
 		if menuinput == 0:
-			print 'game start'
+			game = PygameCharSelect.CharSelect(Display)
+			print 'game start %d' % (game + 1)
+			# you can try below ones :
+			# game = PygameCharSelect.CharSelect(Display)
+			# Game.Play(game)
 		elif menuinput == 1:
 			print 'instructions'
 		elif menuinput == 2:
