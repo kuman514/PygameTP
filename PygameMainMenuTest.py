@@ -7,8 +7,11 @@ height = 960
 menuinput = 0
 
 pygame.init()
+
 Display = pygame.display.set_mode((width,height))
 TestTitle = pygame.image.load('TestTitle.png')
+## load an image file
+
 pygame.display.set_caption('Pygame Main Menu Test')
 
 while True:
@@ -25,6 +28,15 @@ while True:
 	elif Key[pygame.constants.K_DOWN]:
 		menuinput += 1
 		menuinput = menuinput % 3
+	elif Key[pygame.constants.K_RETURN]:
+		if menuinput == 0:
+			print 'game start'
+		elif menuinput == 1:
+			print 'instructions'
+		elif menuinput == 2:
+			print 'game quit'
+			pygame.quit()
+			sys.exit()
 
 	Display.fill(0x000000)
 	Display.blit(TestTitle, (0,0))
