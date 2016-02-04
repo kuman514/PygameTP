@@ -1,6 +1,7 @@
 #imported by PygameMainMenuTest.py
 import pygame, sys
-from pygame import *
+from time import sleep
+from pygame.locals import *
 
 def CharSelect(Display):
 	CharCur = 0;
@@ -11,6 +12,11 @@ def CharSelect(Display):
 				pygame.quit()
 				sys.exit()
 
+		Display.fill(0x000000)
+		Display.blit(TestCharSel, (0,0))
+		pygame.draw.rect(Display, 0x0000ff, (80+(400*CharCur),180,320,600), 4)
+		
+		sleep(0.13)
 		k = pygame.key.get_pressed()
 		if k[pygame.constants.K_LEFT]:
 			CharCur -= 1
@@ -29,7 +35,4 @@ def CharSelect(Display):
 				print 'Guy 3'
 			return CharCur
 
-		Display.fill(0x000000)
-		Display.blit(TestCharSel, (0,0))
-		pygame.draw.rect(Display, 0x0000ff, (80+(400*CharCur),180,320,600), 4)
 		pygame.display.update()
